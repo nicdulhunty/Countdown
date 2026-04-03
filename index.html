@@ -18,9 +18,13 @@ body{padding:16px 12px 40px;min-height:100vh;}
 h1{font-family:'Playfair Display',Georgia,serif;font-size:clamp(22px,6vw,30px);font-weight:400;font-style:italic;color:#3d4a3a;margin-bottom:10px;}
 .total-days{font-family:'Playfair Display',Georgia,serif;font-size:clamp(40px,12vw,56px);font-weight:600;color:#4a5c48;line-height:1;}
 .days-label{font-size:11px;color:#7a8f79;letter-spacing:3px;text-transform:uppercase;margin-top:4px;}
+.status{font-size:11px;color:#8a9e88;margin-top:8px;min-height:16px;font-style:italic;}
 .grid-section{padding:20px 14px 28px;background:#fdfaf4;}
 .grid{display:grid;grid-template-columns:repeat(7,1fr);gap:5px;}
-.cell{aspect-ratio:1;display:flex;align-items:center;justify-content:center;border-radius:8px;font-family:'Lora',Georgia,serif;font-size:clamp(11px,3.2vw,15px);font-weight:500;border:1.5px solid transparent;user-select:none;touch-action:manipulation;}
+.cell{aspect-ratio:1;display:flex;align-items:center;justify-content:center;border-radius:8px;font-family:'Lora',Georgia,serif;font-size:clamp(11px,3.2vw,15px);font-weight:500;position:relative;cursor:pointer;border:1.5px solid transparent;user-select:none;touch-action:manipulation;transition:opacity 0.15s ease;}
+.cell:active{opacity:0.6;}
+.cell.done{background:rgba(120,110,100,0.07)!important;color:rgba(100,90,80,0.22)!important;border-color:rgba(150,140,130,0.18)!important;}
+.cell.done::after{content:'';position:absolute;inset:5px;background:linear-gradient(to bottom right,transparent calc(50% - 1px),rgba(120,100,80,0.28) calc(50% - 1px),rgba(120,100,80,0.28) calc(50% + 1px),transparent calc(50% + 1px)),linear-gradient(to bottom left,transparent calc(50% - 1px),rgba(120,100,80,0.28) calc(50% - 1px),rgba(120,100,80,0.28) calc(50% + 1px),transparent calc(50% + 1px));pointer-events:none;}
 .footer{padding:14px 16px 20px;border-top:1px solid rgba(160,140,120,0.15);}
 .legend{display:flex;flex-wrap:wrap;gap:8px 14px;margin-bottom:10px;}
 .legend-item{display:flex;align-items:center;gap:5px;font-size:11px;color:#8a8070;}
@@ -34,127 +38,128 @@ h1{font-family:'Playfair Display',Georgia,serif;font-size:clamp(22px,6vw,30px);f
     <div class="header-inner">
       <div class="subtitle">Counting Down</div>
       <h1>Days Until Together</h1>
-      <div class="total-days">115</div>
+      <div class="total-days" id="total-display">115</div>
       <div class="days-label">days remaining</div>
+      <div class="status" id="status">loading...</div>
     </div>
   </div>
   <div class="grid-section">
-    <div class="grid">
-<div class="cell" style="background:#ecd5cc;color:#7a3828;border-color:#d4a898;">115</div>
-<div class="cell" style="background:#ecd5cc;color:#7a3828;border-color:#d4a898;">114</div>
-<div class="cell" style="background:#ecd5cc;color:#7a3828;border-color:#d4a898;">113</div>
-<div class="cell" style="background:#ecd5cc;color:#7a3828;border-color:#d4a898;">112</div>
-<div class="cell" style="background:#ecd5cc;color:#7a3828;border-color:#d4a898;">111</div>
-<div class="cell" style="background:#ecd5cc;color:#7a3828;border-color:#d4a898;">110</div>
-<div class="cell" style="background:#ecd5cc;color:#7a3828;border-color:#d4a898;">109</div>
-<div class="cell" style="background:#ecd5cc;color:#7a3828;border-color:#d4a898;">108</div>
-<div class="cell" style="background:#ecd5cc;color:#7a3828;border-color:#d4a898;">107</div>
-<div class="cell" style="background:#ecd5cc;color:#7a3828;border-color:#d4a898;">106</div>
-<div class="cell" style="background:#ecd5cc;color:#7a3828;border-color:#d4a898;">105</div>
-<div class="cell" style="background:#ecd5cc;color:#7a3828;border-color:#d4a898;">104</div>
-<div class="cell" style="background:#ecd5cc;color:#7a3828;border-color:#d4a898;">103</div>
-<div class="cell" style="background:#ecd5cc;color:#7a3828;border-color:#d4a898;">102</div>
-<div class="cell" style="background:#ecd5cc;color:#7a3828;border-color:#d4a898;">101</div>
-<div class="cell" style="background:#ecd5cc;color:#7a3828;border-color:#d4a898;">100</div>
-<div class="cell" style="background:#ecd5cc;color:#7a3828;border-color:#d4a898;">99</div>
-<div class="cell" style="background:#ecd5cc;color:#7a3828;border-color:#d4a898;">98</div>
-<div class="cell" style="background:#ecd5cc;color:#7a3828;border-color:#d4a898;">97</div>
-<div class="cell" style="background:#ecd5cc;color:#7a3828;border-color:#d4a898;">96</div>
-<div class="cell" style="background:#ecd5cc;color:#7a3828;border-color:#d4a898;">95</div>
-<div class="cell" style="background:#ecd5cc;color:#7a3828;border-color:#d4a898;">94</div>
-<div class="cell" style="background:#ecd5cc;color:#7a3828;border-color:#d4a898;">93</div>
-<div class="cell" style="background:#ecd5cc;color:#7a3828;border-color:#d4a898;">92</div>
-<div class="cell" style="background:#ecd5cc;color:#7a3828;border-color:#d4a898;">91</div>
-<div class="cell" style="background:#ecd5cc;color:#7a3828;border-color:#d4a898;">90</div>
-<div class="cell" style="background:#ecd5cc;color:#7a3828;border-color:#d4a898;">89</div>
-<div class="cell" style="background:#ecd5cc;color:#7a3828;border-color:#d4a898;">88</div>
-<div class="cell" style="background:#ecd5cc;color:#7a3828;border-color:#d4a898;">87</div>
-<div class="cell" style="background:#ecd5cc;color:#7a3828;border-color:#d4a898;">86</div>
-<div class="cell" style="background:#ecd5cc;color:#7a3828;border-color:#d4a898;">85</div>
-<div class="cell" style="background:#ecd5cc;color:#7a3828;border-color:#d4a898;">84</div>
-<div class="cell" style="background:#ecd5cc;color:#7a3828;border-color:#d4a898;">83</div>
-<div class="cell" style="background:#ecd5cc;color:#7a3828;border-color:#d4a898;">82</div>
-<div class="cell" style="background:#ecd5cc;color:#7a3828;border-color:#d4a898;">81</div>
-<div class="cell" style="background:#f0e8c8;color:#7a6228;border-color:#d8c888;">80</div>
-<div class="cell" style="background:#f0e8c8;color:#7a6228;border-color:#d8c888;">79</div>
-<div class="cell" style="background:#f0e8c8;color:#7a6228;border-color:#d8c888;">78</div>
-<div class="cell" style="background:#f0e8c8;color:#7a6228;border-color:#d8c888;">77</div>
-<div class="cell" style="background:#f0e8c8;color:#7a6228;border-color:#d8c888;">76</div>
-<div class="cell" style="background:#f0e8c8;color:#7a6228;border-color:#d8c888;">75</div>
-<div class="cell" style="background:#f0e8c8;color:#7a6228;border-color:#d8c888;">74</div>
-<div class="cell" style="background:#f0e8c8;color:#7a6228;border-color:#d8c888;">73</div>
-<div class="cell" style="background:#f0e8c8;color:#7a6228;border-color:#d8c888;">72</div>
-<div class="cell" style="background:#f0e8c8;color:#7a6228;border-color:#d8c888;">71</div>
-<div class="cell" style="background:#f0e8c8;color:#7a6228;border-color:#d8c888;">70</div>
-<div class="cell" style="background:#f0e8c8;color:#7a6228;border-color:#d8c888;">69</div>
-<div class="cell" style="background:#f0e8c8;color:#7a6228;border-color:#d8c888;">68</div>
-<div class="cell" style="background:#f0e8c8;color:#7a6228;border-color:#d8c888;">67</div>
-<div class="cell" style="background:#f0e8c8;color:#7a6228;border-color:#d8c888;">66</div>
-<div class="cell" style="background:#f0e8c8;color:#7a6228;border-color:#d8c888;">65</div>
-<div class="cell" style="background:#f0e8c8;color:#7a6228;border-color:#d8c888;">64</div>
-<div class="cell" style="background:#f0e8c8;color:#7a6228;border-color:#d8c888;">63</div>
-<div class="cell" style="background:#f0e8c8;color:#7a6228;border-color:#d8c888;">62</div>
-<div class="cell" style="background:#f0e8c8;color:#7a6228;border-color:#d8c888;">61</div>
-<div class="cell" style="background:#f0e8c8;color:#7a6228;border-color:#d8c888;">60</div>
-<div class="cell" style="background:#f0e8c8;color:#7a6228;border-color:#d8c888;">59</div>
-<div class="cell" style="background:#f0e8c8;color:#7a6228;border-color:#d8c888;">58</div>
-<div class="cell" style="background:#f0e8c8;color:#7a6228;border-color:#d8c888;">57</div>
-<div class="cell" style="background:#f0e8c8;color:#7a6228;border-color:#d8c888;">56</div>
-<div class="cell" style="background:#f0e8c8;color:#7a6228;border-color:#d8c888;">55</div>
-<div class="cell" style="background:#f0e8c8;color:#7a6228;border-color:#d8c888;">54</div>
-<div class="cell" style="background:#f0e8c8;color:#7a6228;border-color:#d8c888;">53</div>
-<div class="cell" style="background:#f0e8c8;color:#7a6228;border-color:#d8c888;">52</div>
-<div class="cell" style="background:#f0e8c8;color:#7a6228;border-color:#d8c888;">51</div>
-<div class="cell" style="background:#f0e8c8;color:#7a6228;border-color:#d8c888;">50</div>
-<div class="cell" style="background:#f0e8c8;color:#7a6228;border-color:#d8c888;">49</div>
-<div class="cell" style="background:#f0e8c8;color:#7a6228;border-color:#d8c888;">48</div>
-<div class="cell" style="background:#f0e8c8;color:#7a6228;border-color:#d8c888;">47</div>
-<div class="cell" style="background:#f0e8c8;color:#7a6228;border-color:#d8c888;">46</div>
-<div class="cell" style="background:#f0e8c8;color:#7a6228;border-color:#d8c888;">45</div>
-<div class="cell" style="background:#f0e8c8;color:#7a6228;border-color:#d8c888;">44</div>
-<div class="cell" style="background:#f0e8c8;color:#7a6228;border-color:#d8c888;">43</div>
-<div class="cell" style="background:#f0e8c8;color:#7a6228;border-color:#d8c888;">42</div>
-<div class="cell" style="background:#f0e8c8;color:#7a6228;border-color:#d8c888;">41</div>
-<div class="cell" style="background:#d4e4f0;color:#2e5070;border-color:#a4c4e0;">40</div>
-<div class="cell" style="background:#d4e4f0;color:#2e5070;border-color:#a4c4e0;">39</div>
-<div class="cell" style="background:#d4e4f0;color:#2e5070;border-color:#a4c4e0;">38</div>
-<div class="cell" style="background:#d4e4f0;color:#2e5070;border-color:#a4c4e0;">37</div>
-<div class="cell" style="background:#d4e4f0;color:#2e5070;border-color:#a4c4e0;">36</div>
-<div class="cell" style="background:#d4e4f0;color:#2e5070;border-color:#a4c4e0;">35</div>
-<div class="cell" style="background:#d4e4f0;color:#2e5070;border-color:#a4c4e0;">34</div>
-<div class="cell" style="background:#d4e4f0;color:#2e5070;border-color:#a4c4e0;">33</div>
-<div class="cell" style="background:#d4e4f0;color:#2e5070;border-color:#a4c4e0;">32</div>
-<div class="cell" style="background:#d4e4f0;color:#2e5070;border-color:#a4c4e0;">31</div>
-<div class="cell" style="background:#d4e4f0;color:#2e5070;border-color:#a4c4e0;">30</div>
-<div class="cell" style="background:#d4e4f0;color:#2e5070;border-color:#a4c4e0;">29</div>
-<div class="cell" style="background:#d4e4f0;color:#2e5070;border-color:#a4c4e0;">28</div>
-<div class="cell" style="background:#d4e4f0;color:#2e5070;border-color:#a4c4e0;">27</div>
-<div class="cell" style="background:#d4e4f0;color:#2e5070;border-color:#a4c4e0;">26</div>
-<div class="cell" style="background:#d4e4f0;color:#2e5070;border-color:#a4c4e0;">25</div>
-<div class="cell" style="background:#d4e4f0;color:#2e5070;border-color:#a4c4e0;">24</div>
-<div class="cell" style="background:#d4e4f0;color:#2e5070;border-color:#a4c4e0;">23</div>
-<div class="cell" style="background:#d4e4f0;color:#2e5070;border-color:#a4c4e0;">22</div>
-<div class="cell" style="background:#d4e4f0;color:#2e5070;border-color:#a4c4e0;">21</div>
-<div class="cell" style="background:#d4e4f0;color:#2e5070;border-color:#a4c4e0;">20</div>
-<div class="cell" style="background:#d4e4f0;color:#2e5070;border-color:#a4c4e0;">19</div>
-<div class="cell" style="background:#d4e4f0;color:#2e5070;border-color:#a4c4e0;">18</div>
-<div class="cell" style="background:#d4e4f0;color:#2e5070;border-color:#a4c4e0;">17</div>
-<div class="cell" style="background:#d4e4f0;color:#2e5070;border-color:#a4c4e0;">16</div>
-<div class="cell" style="background:#d4e8d0;color:#2e6040;border-color:#a0c89c;">15</div>
-<div class="cell" style="background:#d4e8d0;color:#2e6040;border-color:#a0c89c;">14</div>
-<div class="cell" style="background:#d4e8d0;color:#2e6040;border-color:#a0c89c;">13</div>
-<div class="cell" style="background:#d4e8d0;color:#2e6040;border-color:#a0c89c;">12</div>
-<div class="cell" style="background:#d4e8d0;color:#2e6040;border-color:#a0c89c;">11</div>
-<div class="cell" style="background:#d4e8d0;color:#2e6040;border-color:#a0c89c;">10</div>
-<div class="cell" style="background:#d4e8d0;color:#2e6040;border-color:#a0c89c;">9</div>
-<div class="cell" style="background:#d4e8d0;color:#2e6040;border-color:#a0c89c;">8</div>
-<div class="cell" style="background:#d4e8d0;color:#2e6040;border-color:#a0c89c;">7</div>
-<div class="cell" style="background:#d4e8d0;color:#2e6040;border-color:#a0c89c;">6</div>
-<div class="cell" style="background:#d4e8d0;color:#2e6040;border-color:#a0c89c;">5</div>
-<div class="cell" style="background:#d4e8d0;color:#2e6040;border-color:#a0c89c;">4</div>
-<div class="cell" style="background:#d4e8d0;color:#2e6040;border-color:#a0c89c;">3</div>
-<div class="cell" style="background:#d4e8d0;color:#2e6040;border-color:#a0c89c;">2</div>
-<div class="cell" style="background:linear-gradient(135deg,#c8d8b0,#b4c89a);color:#2a4a22;border-color:#8aaa6a;font-weight:600;">1</div>
+    <div class="grid" id="grid">
+<div class="cell" id="c115" style="background:#ecd5cc;color:#7a3828;border-color:#d4a898;" onclick="toggle(115)">115</div>
+<div class="cell" id="c114" style="background:#ecd5cc;color:#7a3828;border-color:#d4a898;" onclick="toggle(114)">114</div>
+<div class="cell" id="c113" style="background:#ecd5cc;color:#7a3828;border-color:#d4a898;" onclick="toggle(113)">113</div>
+<div class="cell" id="c112" style="background:#ecd5cc;color:#7a3828;border-color:#d4a898;" onclick="toggle(112)">112</div>
+<div class="cell" id="c111" style="background:#ecd5cc;color:#7a3828;border-color:#d4a898;" onclick="toggle(111)">111</div>
+<div class="cell" id="c110" style="background:#ecd5cc;color:#7a3828;border-color:#d4a898;" onclick="toggle(110)">110</div>
+<div class="cell" id="c109" style="background:#ecd5cc;color:#7a3828;border-color:#d4a898;" onclick="toggle(109)">109</div>
+<div class="cell" id="c108" style="background:#ecd5cc;color:#7a3828;border-color:#d4a898;" onclick="toggle(108)">108</div>
+<div class="cell" id="c107" style="background:#ecd5cc;color:#7a3828;border-color:#d4a898;" onclick="toggle(107)">107</div>
+<div class="cell" id="c106" style="background:#ecd5cc;color:#7a3828;border-color:#d4a898;" onclick="toggle(106)">106</div>
+<div class="cell" id="c105" style="background:#ecd5cc;color:#7a3828;border-color:#d4a898;" onclick="toggle(105)">105</div>
+<div class="cell" id="c104" style="background:#ecd5cc;color:#7a3828;border-color:#d4a898;" onclick="toggle(104)">104</div>
+<div class="cell" id="c103" style="background:#ecd5cc;color:#7a3828;border-color:#d4a898;" onclick="toggle(103)">103</div>
+<div class="cell" id="c102" style="background:#ecd5cc;color:#7a3828;border-color:#d4a898;" onclick="toggle(102)">102</div>
+<div class="cell" id="c101" style="background:#ecd5cc;color:#7a3828;border-color:#d4a898;" onclick="toggle(101)">101</div>
+<div class="cell" id="c100" style="background:#ecd5cc;color:#7a3828;border-color:#d4a898;" onclick="toggle(100)">100</div>
+<div class="cell" id="c99" style="background:#ecd5cc;color:#7a3828;border-color:#d4a898;" onclick="toggle(99)">99</div>
+<div class="cell" id="c98" style="background:#ecd5cc;color:#7a3828;border-color:#d4a898;" onclick="toggle(98)">98</div>
+<div class="cell" id="c97" style="background:#ecd5cc;color:#7a3828;border-color:#d4a898;" onclick="toggle(97)">97</div>
+<div class="cell" id="c96" style="background:#ecd5cc;color:#7a3828;border-color:#d4a898;" onclick="toggle(96)">96</div>
+<div class="cell" id="c95" style="background:#ecd5cc;color:#7a3828;border-color:#d4a898;" onclick="toggle(95)">95</div>
+<div class="cell" id="c94" style="background:#ecd5cc;color:#7a3828;border-color:#d4a898;" onclick="toggle(94)">94</div>
+<div class="cell" id="c93" style="background:#ecd5cc;color:#7a3828;border-color:#d4a898;" onclick="toggle(93)">93</div>
+<div class="cell" id="c92" style="background:#ecd5cc;color:#7a3828;border-color:#d4a898;" onclick="toggle(92)">92</div>
+<div class="cell" id="c91" style="background:#ecd5cc;color:#7a3828;border-color:#d4a898;" onclick="toggle(91)">91</div>
+<div class="cell" id="c90" style="background:#ecd5cc;color:#7a3828;border-color:#d4a898;" onclick="toggle(90)">90</div>
+<div class="cell" id="c89" style="background:#ecd5cc;color:#7a3828;border-color:#d4a898;" onclick="toggle(89)">89</div>
+<div class="cell" id="c88" style="background:#ecd5cc;color:#7a3828;border-color:#d4a898;" onclick="toggle(88)">88</div>
+<div class="cell" id="c87" style="background:#ecd5cc;color:#7a3828;border-color:#d4a898;" onclick="toggle(87)">87</div>
+<div class="cell" id="c86" style="background:#ecd5cc;color:#7a3828;border-color:#d4a898;" onclick="toggle(86)">86</div>
+<div class="cell" id="c85" style="background:#ecd5cc;color:#7a3828;border-color:#d4a898;" onclick="toggle(85)">85</div>
+<div class="cell" id="c84" style="background:#ecd5cc;color:#7a3828;border-color:#d4a898;" onclick="toggle(84)">84</div>
+<div class="cell" id="c83" style="background:#ecd5cc;color:#7a3828;border-color:#d4a898;" onclick="toggle(83)">83</div>
+<div class="cell" id="c82" style="background:#ecd5cc;color:#7a3828;border-color:#d4a898;" onclick="toggle(82)">82</div>
+<div class="cell" id="c81" style="background:#ecd5cc;color:#7a3828;border-color:#d4a898;" onclick="toggle(81)">81</div>
+<div class="cell" id="c80" style="background:#f0e8c8;color:#7a6228;border-color:#d8c888;" onclick="toggle(80)">80</div>
+<div class="cell" id="c79" style="background:#f0e8c8;color:#7a6228;border-color:#d8c888;" onclick="toggle(79)">79</div>
+<div class="cell" id="c78" style="background:#f0e8c8;color:#7a6228;border-color:#d8c888;" onclick="toggle(78)">78</div>
+<div class="cell" id="c77" style="background:#f0e8c8;color:#7a6228;border-color:#d8c888;" onclick="toggle(77)">77</div>
+<div class="cell" id="c76" style="background:#f0e8c8;color:#7a6228;border-color:#d8c888;" onclick="toggle(76)">76</div>
+<div class="cell" id="c75" style="background:#f0e8c8;color:#7a6228;border-color:#d8c888;" onclick="toggle(75)">75</div>
+<div class="cell" id="c74" style="background:#f0e8c8;color:#7a6228;border-color:#d8c888;" onclick="toggle(74)">74</div>
+<div class="cell" id="c73" style="background:#f0e8c8;color:#7a6228;border-color:#d8c888;" onclick="toggle(73)">73</div>
+<div class="cell" id="c72" style="background:#f0e8c8;color:#7a6228;border-color:#d8c888;" onclick="toggle(72)">72</div>
+<div class="cell" id="c71" style="background:#f0e8c8;color:#7a6228;border-color:#d8c888;" onclick="toggle(71)">71</div>
+<div class="cell" id="c70" style="background:#f0e8c8;color:#7a6228;border-color:#d8c888;" onclick="toggle(70)">70</div>
+<div class="cell" id="c69" style="background:#f0e8c8;color:#7a6228;border-color:#d8c888;" onclick="toggle(69)">69</div>
+<div class="cell" id="c68" style="background:#f0e8c8;color:#7a6228;border-color:#d8c888;" onclick="toggle(68)">68</div>
+<div class="cell" id="c67" style="background:#f0e8c8;color:#7a6228;border-color:#d8c888;" onclick="toggle(67)">67</div>
+<div class="cell" id="c66" style="background:#f0e8c8;color:#7a6228;border-color:#d8c888;" onclick="toggle(66)">66</div>
+<div class="cell" id="c65" style="background:#f0e8c8;color:#7a6228;border-color:#d8c888;" onclick="toggle(65)">65</div>
+<div class="cell" id="c64" style="background:#f0e8c8;color:#7a6228;border-color:#d8c888;" onclick="toggle(64)">64</div>
+<div class="cell" id="c63" style="background:#f0e8c8;color:#7a6228;border-color:#d8c888;" onclick="toggle(63)">63</div>
+<div class="cell" id="c62" style="background:#f0e8c8;color:#7a6228;border-color:#d8c888;" onclick="toggle(62)">62</div>
+<div class="cell" id="c61" style="background:#f0e8c8;color:#7a6228;border-color:#d8c888;" onclick="toggle(61)">61</div>
+<div class="cell" id="c60" style="background:#f0e8c8;color:#7a6228;border-color:#d8c888;" onclick="toggle(60)">60</div>
+<div class="cell" id="c59" style="background:#f0e8c8;color:#7a6228;border-color:#d8c888;" onclick="toggle(59)">59</div>
+<div class="cell" id="c58" style="background:#f0e8c8;color:#7a6228;border-color:#d8c888;" onclick="toggle(58)">58</div>
+<div class="cell" id="c57" style="background:#f0e8c8;color:#7a6228;border-color:#d8c888;" onclick="toggle(57)">57</div>
+<div class="cell" id="c56" style="background:#f0e8c8;color:#7a6228;border-color:#d8c888;" onclick="toggle(56)">56</div>
+<div class="cell" id="c55" style="background:#f0e8c8;color:#7a6228;border-color:#d8c888;" onclick="toggle(55)">55</div>
+<div class="cell" id="c54" style="background:#f0e8c8;color:#7a6228;border-color:#d8c888;" onclick="toggle(54)">54</div>
+<div class="cell" id="c53" style="background:#f0e8c8;color:#7a6228;border-color:#d8c888;" onclick="toggle(53)">53</div>
+<div class="cell" id="c52" style="background:#f0e8c8;color:#7a6228;border-color:#d8c888;" onclick="toggle(52)">52</div>
+<div class="cell" id="c51" style="background:#f0e8c8;color:#7a6228;border-color:#d8c888;" onclick="toggle(51)">51</div>
+<div class="cell" id="c50" style="background:#f0e8c8;color:#7a6228;border-color:#d8c888;" onclick="toggle(50)">50</div>
+<div class="cell" id="c49" style="background:#f0e8c8;color:#7a6228;border-color:#d8c888;" onclick="toggle(49)">49</div>
+<div class="cell" id="c48" style="background:#f0e8c8;color:#7a6228;border-color:#d8c888;" onclick="toggle(48)">48</div>
+<div class="cell" id="c47" style="background:#f0e8c8;color:#7a6228;border-color:#d8c888;" onclick="toggle(47)">47</div>
+<div class="cell" id="c46" style="background:#f0e8c8;color:#7a6228;border-color:#d8c888;" onclick="toggle(46)">46</div>
+<div class="cell" id="c45" style="background:#f0e8c8;color:#7a6228;border-color:#d8c888;" onclick="toggle(45)">45</div>
+<div class="cell" id="c44" style="background:#f0e8c8;color:#7a6228;border-color:#d8c888;" onclick="toggle(44)">44</div>
+<div class="cell" id="c43" style="background:#f0e8c8;color:#7a6228;border-color:#d8c888;" onclick="toggle(43)">43</div>
+<div class="cell" id="c42" style="background:#f0e8c8;color:#7a6228;border-color:#d8c888;" onclick="toggle(42)">42</div>
+<div class="cell" id="c41" style="background:#f0e8c8;color:#7a6228;border-color:#d8c888;" onclick="toggle(41)">41</div>
+<div class="cell" id="c40" style="background:#d4e4f0;color:#2e5070;border-color:#a4c4e0;" onclick="toggle(40)">40</div>
+<div class="cell" id="c39" style="background:#d4e4f0;color:#2e5070;border-color:#a4c4e0;" onclick="toggle(39)">39</div>
+<div class="cell" id="c38" style="background:#d4e4f0;color:#2e5070;border-color:#a4c4e0;" onclick="toggle(38)">38</div>
+<div class="cell" id="c37" style="background:#d4e4f0;color:#2e5070;border-color:#a4c4e0;" onclick="toggle(37)">37</div>
+<div class="cell" id="c36" style="background:#d4e4f0;color:#2e5070;border-color:#a4c4e0;" onclick="toggle(36)">36</div>
+<div class="cell" id="c35" style="background:#d4e4f0;color:#2e5070;border-color:#a4c4e0;" onclick="toggle(35)">35</div>
+<div class="cell" id="c34" style="background:#d4e4f0;color:#2e5070;border-color:#a4c4e0;" onclick="toggle(34)">34</div>
+<div class="cell" id="c33" style="background:#d4e4f0;color:#2e5070;border-color:#a4c4e0;" onclick="toggle(33)">33</div>
+<div class="cell" id="c32" style="background:#d4e4f0;color:#2e5070;border-color:#a4c4e0;" onclick="toggle(32)">32</div>
+<div class="cell" id="c31" style="background:#d4e4f0;color:#2e5070;border-color:#a4c4e0;" onclick="toggle(31)">31</div>
+<div class="cell" id="c30" style="background:#d4e4f0;color:#2e5070;border-color:#a4c4e0;" onclick="toggle(30)">30</div>
+<div class="cell" id="c29" style="background:#d4e4f0;color:#2e5070;border-color:#a4c4e0;" onclick="toggle(29)">29</div>
+<div class="cell" id="c28" style="background:#d4e4f0;color:#2e5070;border-color:#a4c4e0;" onclick="toggle(28)">28</div>
+<div class="cell" id="c27" style="background:#d4e4f0;color:#2e5070;border-color:#a4c4e0;" onclick="toggle(27)">27</div>
+<div class="cell" id="c26" style="background:#d4e4f0;color:#2e5070;border-color:#a4c4e0;" onclick="toggle(26)">26</div>
+<div class="cell" id="c25" style="background:#d4e4f0;color:#2e5070;border-color:#a4c4e0;" onclick="toggle(25)">25</div>
+<div class="cell" id="c24" style="background:#d4e4f0;color:#2e5070;border-color:#a4c4e0;" onclick="toggle(24)">24</div>
+<div class="cell" id="c23" style="background:#d4e4f0;color:#2e5070;border-color:#a4c4e0;" onclick="toggle(23)">23</div>
+<div class="cell" id="c22" style="background:#d4e4f0;color:#2e5070;border-color:#a4c4e0;" onclick="toggle(22)">22</div>
+<div class="cell" id="c21" style="background:#d4e4f0;color:#2e5070;border-color:#a4c4e0;" onclick="toggle(21)">21</div>
+<div class="cell" id="c20" style="background:#d4e4f0;color:#2e5070;border-color:#a4c4e0;" onclick="toggle(20)">20</div>
+<div class="cell" id="c19" style="background:#d4e4f0;color:#2e5070;border-color:#a4c4e0;" onclick="toggle(19)">19</div>
+<div class="cell" id="c18" style="background:#d4e4f0;color:#2e5070;border-color:#a4c4e0;" onclick="toggle(18)">18</div>
+<div class="cell" id="c17" style="background:#d4e4f0;color:#2e5070;border-color:#a4c4e0;" onclick="toggle(17)">17</div>
+<div class="cell" id="c16" style="background:#d4e4f0;color:#2e5070;border-color:#a4c4e0;" onclick="toggle(16)">16</div>
+<div class="cell" id="c15" style="background:#d4e8d0;color:#2e6040;border-color:#a0c89c;" onclick="toggle(15)">15</div>
+<div class="cell" id="c14" style="background:#d4e8d0;color:#2e6040;border-color:#a0c89c;" onclick="toggle(14)">14</div>
+<div class="cell" id="c13" style="background:#d4e8d0;color:#2e6040;border-color:#a0c89c;" onclick="toggle(13)">13</div>
+<div class="cell" id="c12" style="background:#d4e8d0;color:#2e6040;border-color:#a0c89c;" onclick="toggle(12)">12</div>
+<div class="cell" id="c11" style="background:#d4e8d0;color:#2e6040;border-color:#a0c89c;" onclick="toggle(11)">11</div>
+<div class="cell" id="c10" style="background:#d4e8d0;color:#2e6040;border-color:#a0c89c;" onclick="toggle(10)">10</div>
+<div class="cell" id="c9" style="background:#d4e8d0;color:#2e6040;border-color:#a0c89c;" onclick="toggle(9)">9</div>
+<div class="cell" id="c8" style="background:#d4e8d0;color:#2e6040;border-color:#a0c89c;" onclick="toggle(8)">8</div>
+<div class="cell" id="c7" style="background:#d4e8d0;color:#2e6040;border-color:#a0c89c;" onclick="toggle(7)">7</div>
+<div class="cell" id="c6" style="background:#d4e8d0;color:#2e6040;border-color:#a0c89c;" onclick="toggle(6)">6</div>
+<div class="cell" id="c5" style="background:#d4e8d0;color:#2e6040;border-color:#a0c89c;" onclick="toggle(5)">5</div>
+<div class="cell" id="c4" style="background:#d4e8d0;color:#2e6040;border-color:#a0c89c;" onclick="toggle(4)">4</div>
+<div class="cell" id="c3" style="background:#d4e8d0;color:#2e6040;border-color:#a0c89c;" onclick="toggle(3)">3</div>
+<div class="cell" id="c2" style="background:#d4e8d0;color:#2e6040;border-color:#a0c89c;" onclick="toggle(2)">2</div>
+<div class="cell" id="c1" style="background:linear-gradient(135deg,#c8d8b0,#b4c89a);color:#2a4a22;border-color:#8aaa6a;font-weight:600;" onclick="toggle(1)">1</div>
     </div>
   </div>
   <div class="footer">
@@ -164,8 +169,95 @@ h1{font-family:'Playfair Display',Georgia,serif;font-size:clamp(22px,6vw,30px);f
       <div class="legend-item"><div class="legend-dot" style="background:#d4e4f0;border-color:#a4c4e0"></div>nearly there</div>
       <div class="legend-item"><div class="legend-dot" style="background:#d4e8d0;border-color:#a0c89c"></div>so close!</div>
     </div>
-    <div class="instructions">draw an X on each day as you go ✦</div>
+    <div class="instructions">tap each day to cross it off ✦</div>
   </div>
 </div>
+
+<script>
+const URL = 'https://efupnnnfnyblqyczjvcy.supabase.co';
+const KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImVmdXBubm5mbnlibHF5Y3pqdmN5Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzUyMTM1NjIsImV4cCI6MjA5MDc4OTU2Mn0.NH5ae1RwNlCfmcL3mTPvgB004grMp3ZpQyifu1GMpLE';
+const TOTAL = 115;
+
+const headers = {
+  'apikey': KEY,
+  'Authorization': 'Bearer ' + KEY,
+  'Content-Type': 'application/json',
+  'Prefer': 'return=minimal'
+};
+
+const crossed = new Set();
+
+function setStatus(msg) {
+  document.getElementById('status').textContent = msg;
+}
+
+function updateTotal() {
+  document.getElementById('total-display').textContent = TOTAL - crossed.size;
+}
+
+function markCell(day, done) {
+  const cell = document.getElementById('c' + day);
+  if (!cell) return;
+  if (done) cell.classList.add('done');
+  else cell.classList.remove('done');
+}
+
+async function loadCrossed() {
+  setStatus('syncing...');
+  try {
+    const res = await fetch(URL + '/rest/v1/crossed?select=day', { headers });
+    if (!res.ok) throw new Error(await res.text());
+    const data = await res.json();
+    crossed.clear();
+    data.forEach(r => {
+      crossed.add(r.day);
+      markCell(r.day, true);
+    });
+    updateTotal();
+    setStatus('synced ✦');
+    setTimeout(() => setStatus(''), 2000);
+  } catch(e) {
+    setStatus('sync error — check connection');
+    console.error(e);
+  }
+}
+
+async function toggle(day) {
+  const wasDone = crossed.has(day);
+  // Optimistic UI update
+  if (wasDone) { crossed.delete(day); markCell(day, false); }
+  else { crossed.add(day); markCell(day, true); }
+  updateTotal();
+  setStatus('saving...');
+  try {
+    if (wasDone) {
+      const res = await fetch(URL + '/rest/v1/crossed?day=eq.' + day, {
+        method: 'DELETE', headers
+      });
+      if (!res.ok) throw new Error(await res.text());
+    } else {
+      const res = await fetch(URL + '/rest/v1/crossed', {
+        method: 'POST',
+        headers,
+        body: JSON.stringify({ day })
+      });
+      if (!res.ok) throw new Error(await res.text());
+    }
+    setStatus('saved ✦');
+    setTimeout(() => setStatus(''), 1500);
+  } catch(e) {
+    // Revert on error
+    if (wasDone) { crossed.add(day); markCell(day, true); }
+    else { crossed.delete(day); markCell(day, false); }
+    updateTotal();
+    setStatus('save failed — try again');
+    console.error(e);
+  }
+}
+
+// Poll for changes every 10 seconds so both phones stay in sync
+loadCrossed();
+setInterval(loadCrossed, 10000);
+</script>
 </body>
 </html>
