@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<title>Days Until Together</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Lora:wght@400;500&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent;}
+html,body{width:100%;background:#f5f0e8;font-family:'Lora',Georgia,serif;-webkit-text-size-adjust:100%;}
+body{padding:16px 12px 40px;min-height:100vh;}
+.page{width:100%;max-width:680px;margin:0 auto;background:#fdfaf4;border-radius:16px;overflow:hidden;box-shadow:0 4px 24px rgba(90,70,50,0.13);}
+.header{position:relative;padding:32px 24px 28px;background:linear-gradient(135deg,#c8dde8 0%,#d6e8d4 40%,#e8d9c0 70%,#dbc8b5 100%);overflow:hidden;text-align:center;}
+.header::before{content:'';position:absolute;top:-30px;left:-40px;width:200px;height:160px;background:radial-gradient(ellipse,rgba(180,210,220,0.5) 0%,transparent 70%);border-radius:50%;}
+.header::after{content:'';position:absolute;bottom:-20px;right:-30px;width:220px;height:140px;background:radial-gradient(ellipse,rgba(210,190,160,0.45) 0%,transparent 70%);border-radius:50%;}
+.header-inner{position:relative;z-index:1;}
+.subtitle{font-size:11px;color:#6b7e6a;letter-spacing:3px;text-transform:uppercase;font-weight:500;margin-bottom:6px;}
+h1{font-family:'Playfair Display',Georgia,serif;font-size:clamp(22px,6vw,30px);font-weight:400;font-style:italic;color:#3d4a3a;margin-bottom:10px;}
+.total-days{font-family:'Playfair Display',Georgia,serif;font-size:clamp(40px,12vw,56px);font-weight:600;color:#4a5c48;line-height:1;}
+.days-label{font-size:11px;color:#7a8f79;letter-spacing:3px;text-transform:uppercase;margin-top:4px;}
+.grid-section{padding:20px 14px 28px;background:#fdfaf4;}
+.grid{display:grid;grid-template-columns:repeat(7,1fr);gap:5px;}
+.cell{aspect-ratio:1;display:flex;align-items:center;justify-content:center;border-radius:8px;font-family:'Lora',Georgia,serif;font-size:clamp(11px,3.2vw,15px);font-weight:500;border:1.5px solid transparent;user-select:none;touch-action:manipulation;}
+.footer{padding:14px 16px 20px;border-top:1px solid rgba(160,140,120,0.15);}
+.legend{display:flex;flex-wrap:wrap;gap:8px 14px;margin-bottom:10px;}
+.legend-item{display:flex;align-items:center;gap:5px;font-size:11px;color:#8a8070;}
+.legend-dot{width:11px;height:11px;border-radius:3px;border:1px solid rgba(0,0,0,0.08);flex-shrink:0;}
+.instructions{font-size:11px;color:#a09080;font-style:italic;text-align:center;}
+</style>
+</head>
+<body>
+<div class="page">
+  <div class="header">
+    <div class="header-inner">
+      <div class="subtitle">Counting Down</div>
+      <h1>Days Until Together</h1>
+      <div class="total-days">115</div>
+      <div class="days-label">days remaining</div>
+    </div>
+  </div>
+  <div class="grid-section">
+    <div class="grid">
+<div class="cell" style="background:#ecd5cc;color:#7a3828;border-color:#d4a898;">115</div>
+<div class="cell" style="background:#ecd5cc;color:#7a3828;border-color:#d4a898;">114</div>
+<div class="cell" style="background:#ecd5cc;color:#7a3828;border-color:#d4a898;">113</div>
+<div class="cell" style="background:#ecd5cc;color:#7a3828;border-color:#d4a898;">112</div>
+<div class="cell" style="background:#ecd5cc;color:#7a3828;border-color:#d4a898;">111</div>
+<div class="cell" style="background:#ecd5cc;color:#7a3828;border-color:#d4a898;">110</div>
+<div class="cell" style="background:#ecd5cc;color:#7a3828;border-color:#d4a898;">109</div>
+<div class="cell" style="background:#ecd5cc;color:#7a3828;border-color:#d4a898;">108</div>
+<div class="cell" style="background:#ecd5cc;color:#7a3828;border-color:#d4a898;">107</div>
+<div class="cell" style="background:#ecd5cc;color:#7a3828;border-color:#d4a898;">106</div>
+<div class="cell" style="background:#ecd5cc;color:#7a3828;border-color:#d4a898;">105</div>
+<div class="cell" style="background:#ecd5cc;color:#7a3828;border-color:#d4a898;">104</div>
+<div class="cell" style="background:#ecd5cc;color:#7a3828;border-color:#d4a898;">103</div>
+<div class="cell" style="background:#ecd5cc;color:#7a3828;border-color:#d4a898;">102</div>
+<div class="cell" style="background:#ecd5cc;color:#7a3828;border-color:#d4a898;">101</div>
+<div class="cell" style="background:#ecd5cc;color:#7a3828;border-color:#d4a898;">100</div>
+<div class="cell" style="background:#ecd5cc;color:#7a3828;border-color:#d4a898;">99</div>
+<div class="cell" style="background:#ecd5cc;color:#7a3828;border-color:#d4a898;">98</div>
+<div class="cell" style="background:#ecd5cc;color:#7a3828;border-color:#d4a898;">97</div>
+<div class="cell" style="background:#ecd5cc;color:#7a3828;border-color:#d4a898;">96</div>
+<div class="cell" style="background:#ecd5cc;color:#7a3828;border-color:#d4a898;">95</div>
+<div class="cell" style="background:#ecd5cc;color:#7a3828;border-color:#d4a898;">94</div>
+<div class="cell" style="background:#ecd5cc;color:#7a3828;border-color:#d4a898;">93</div>
+<div class="cell" style="background:#ecd5cc;color:#7a3828;border-color:#d4a898;">92</div>
+<div class="cell" style="background:#ecd5cc;color:#7a3828;border-color:#d4a898;">91</div>
+<div class="cell" style="background:#ecd5cc;color:#7a3828;border-color:#d4a898;">90</div>
+<div class="cell" style="background:#ecd5cc;color:#7a3828;border-color:#d4a898;">89</div>
+<div class="cell" style="background:#ecd5cc;color:#7a3828;border-color:#d4a898;">88</div>
+<div class="cell" style="background:#ecd5cc;color:#7a3828;border-color:#d4a898;">87</div>
+<div class="cell" style="background:#ecd5cc;color:#7a3828;border-color:#d4a898;">86</div>
+<div class="cell" style="background:#ecd5cc;color:#7a3828;border-color:#d4a898;">85</div>
+<div class="cell" style="background:#ecd5cc;color:#7a3828;border-color:#d4a898;">84</div>
+<div class="cell" style="background:#ecd5cc;color:#7a3828;border-color:#d4a898;">83</div>
+<div class="cell" style="background:#ecd5cc;color:#7a3828;border-color:#d4a898;">82</div>
+<div class="cell" style="background:#ecd5cc;color:#7a3828;border-color:#d4a898;">81</div>
+<div class="cell" style="background:#f0e8c8;color:#7a6228;border-color:#d8c888;">80</div>
+<div class="cell" style="background:#f0e8c8;color:#7a6228;border-color:#d8c888;">79</div>
+<div class="cell" style="background:#f0e8c8;color:#7a6228;border-color:#d8c888;">78</div>
+<div class="cell" style="background:#f0e8c8;color:#7a6228;border-color:#d8c888;">77</div>
+<div class="cell" style="background:#f0e8c8;color:#7a6228;border-color:#d8c888;">76</div>
+<div class="cell" style="background:#f0e8c8;color:#7a6228;border-color:#d8c888;">75</div>
+<div class="cell" style="background:#f0e8c8;color:#7a6228;border-color:#d8c888;">74</div>
+<div class="cell" style="background:#f0e8c8;color:#7a6228;border-color:#d8c888;">73</div>
+<div class="cell" style="background:#f0e8c8;color:#7a6228;border-color:#d8c888;">72</div>
+<div class="cell" style="background:#f0e8c8;color:#7a6228;border-color:#d8c888;">71</div>
+<div class="cell" style="background:#f0e8c8;color:#7a6228;border-color:#d8c888;">70</div>
+<div class="cell" style="background:#f0e8c8;color:#7a6228;border-color:#d8c888;">69</div>
+<div class="cell" style="background:#f0e8c8;color:#7a6228;border-color:#d8c888;">68</div>
+<div class="cell" style="background:#f0e8c8;color:#7a6228;border-color:#d8c888;">67</div>
+<div class="cell" style="background:#f0e8c8;color:#7a6228;border-color:#d8c888;">66</div>
+<div class="cell" style="background:#f0e8c8;color:#7a6228;border-color:#d8c888;">65</div>
+<div class="cell" style="background:#f0e8c8;color:#7a6228;border-color:#d8c888;">64</div>
+<div class="cell" style="background:#f0e8c8;color:#7a6228;border-color:#d8c888;">63</div>
+<div class="cell" style="background:#f0e8c8;color:#7a6228;border-color:#d8c888;">62</div>
+<div class="cell" style="background:#f0e8c8;color:#7a6228;border-color:#d8c888;">61</div>
+<div class="cell" style="background:#f0e8c8;color:#7a6228;border-color:#d8c888;">60</div>
+<div class="cell" style="background:#f0e8c8;color:#7a6228;border-color:#d8c888;">59</div>
+<div class="cell" style="background:#f0e8c8;color:#7a6228;border-color:#d8c888;">58</div>
+<div class="cell" style="background:#f0e8c8;color:#7a6228;border-color:#d8c888;">57</div>
+<div class="cell" style="background:#f0e8c8;color:#7a6228;border-color:#d8c888;">56</div>
+<div class="cell" style="background:#f0e8c8;color:#7a6228;border-color:#d8c888;">55</div>
+<div class="cell" style="background:#f0e8c8;color:#7a6228;border-color:#d8c888;">54</div>
+<div class="cell" style="background:#f0e8c8;color:#7a6228;border-color:#d8c888;">53</div>
+<div class="cell" style="background:#f0e8c8;color:#7a6228;border-color:#d8c888;">52</div>
+<div class="cell" style="background:#f0e8c8;color:#7a6228;border-color:#d8c888;">51</div>
+<div class="cell" style="background:#f0e8c8;color:#7a6228;border-color:#d8c888;">50</div>
+<div class="cell" style="background:#f0e8c8;color:#7a6228;border-color:#d8c888;">49</div>
+<div class="cell" style="background:#f0e8c8;color:#7a6228;border-color:#d8c888;">48</div>
+<div class="cell" style="background:#f0e8c8;color:#7a6228;border-color:#d8c888;">47</div>
+<div class="cell" style="background:#f0e8c8;color:#7a6228;border-color:#d8c888;">46</div>
+<div class="cell" style="background:#f0e8c8;color:#7a6228;border-color:#d8c888;">45</div>
+<div class="cell" style="background:#f0e8c8;color:#7a6228;border-color:#d8c888;">44</div>
+<div class="cell" style="background:#f0e8c8;color:#7a6228;border-color:#d8c888;">43</div>
+<div class="cell" style="background:#f0e8c8;color:#7a6228;border-color:#d8c888;">42</div>
+<div class="cell" style="background:#f0e8c8;color:#7a6228;border-color:#d8c888;">41</div>
+<div class="cell" style="background:#d4e4f0;color:#2e5070;border-color:#a4c4e0;">40</div>
+<div class="cell" style="background:#d4e4f0;color:#2e5070;border-color:#a4c4e0;">39</div>
+<div class="cell" style="background:#d4e4f0;color:#2e5070;border-color:#a4c4e0;">38</div>
+<div class="cell" style="background:#d4e4f0;color:#2e5070;border-color:#a4c4e0;">37</div>
+<div class="cell" style="background:#d4e4f0;color:#2e5070;border-color:#a4c4e0;">36</div>
+<div class="cell" style="background:#d4e4f0;color:#2e5070;border-color:#a4c4e0;">35</div>
+<div class="cell" style="background:#d4e4f0;color:#2e5070;border-color:#a4c4e0;">34</div>
+<div class="cell" style="background:#d4e4f0;color:#2e5070;border-color:#a4c4e0;">33</div>
+<div class="cell" style="background:#d4e4f0;color:#2e5070;border-color:#a4c4e0;">32</div>
+<div class="cell" style="background:#d4e4f0;color:#2e5070;border-color:#a4c4e0;">31</div>
+<div class="cell" style="background:#d4e4f0;color:#2e5070;border-color:#a4c4e0;">30</div>
+<div class="cell" style="background:#d4e4f0;color:#2e5070;border-color:#a4c4e0;">29</div>
+<div class="cell" style="background:#d4e4f0;color:#2e5070;border-color:#a4c4e0;">28</div>
+<div class="cell" style="background:#d4e4f0;color:#2e5070;border-color:#a4c4e0;">27</div>
+<div class="cell" style="background:#d4e4f0;color:#2e5070;border-color:#a4c4e0;">26</div>
+<div class="cell" style="background:#d4e4f0;color:#2e5070;border-color:#a4c4e0;">25</div>
+<div class="cell" style="background:#d4e4f0;color:#2e5070;border-color:#a4c4e0;">24</div>
+<div class="cell" style="background:#d4e4f0;color:#2e5070;border-color:#a4c4e0;">23</div>
+<div class="cell" style="background:#d4e4f0;color:#2e5070;border-color:#a4c4e0;">22</div>
+<div class="cell" style="background:#d4e4f0;color:#2e5070;border-color:#a4c4e0;">21</div>
+<div class="cell" style="background:#d4e4f0;color:#2e5070;border-color:#a4c4e0;">20</div>
+<div class="cell" style="background:#d4e4f0;color:#2e5070;border-color:#a4c4e0;">19</div>
+<div class="cell" style="background:#d4e4f0;color:#2e5070;border-color:#a4c4e0;">18</div>
+<div class="cell" style="background:#d4e4f0;color:#2e5070;border-color:#a4c4e0;">17</div>
+<div class="cell" style="background:#d4e4f0;color:#2e5070;border-color:#a4c4e0;">16</div>
+<div class="cell" style="background:#d4e8d0;color:#2e6040;border-color:#a0c89c;">15</div>
+<div class="cell" style="background:#d4e8d0;color:#2e6040;border-color:#a0c89c;">14</div>
+<div class="cell" style="background:#d4e8d0;color:#2e6040;border-color:#a0c89c;">13</div>
+<div class="cell" style="background:#d4e8d0;color:#2e6040;border-color:#a0c89c;">12</div>
+<div class="cell" style="background:#d4e8d0;color:#2e6040;border-color:#a0c89c;">11</div>
+<div class="cell" style="background:#d4e8d0;color:#2e6040;border-color:#a0c89c;">10</div>
+<div class="cell" style="background:#d4e8d0;color:#2e6040;border-color:#a0c89c;">9</div>
+<div class="cell" style="background:#d4e8d0;color:#2e6040;border-color:#a0c89c;">8</div>
+<div class="cell" style="background:#d4e8d0;color:#2e6040;border-color:#a0c89c;">7</div>
+<div class="cell" style="background:#d4e8d0;color:#2e6040;border-color:#a0c89c;">6</div>
+<div class="cell" style="background:#d4e8d0;color:#2e6040;border-color:#a0c89c;">5</div>
+<div class="cell" style="background:#d4e8d0;color:#2e6040;border-color:#a0c89c;">4</div>
+<div class="cell" style="background:#d4e8d0;color:#2e6040;border-color:#a0c89c;">3</div>
+<div class="cell" style="background:#d4e8d0;color:#2e6040;border-color:#a0c89c;">2</div>
+<div class="cell" style="background:linear-gradient(135deg,#c8d8b0,#b4c89a);color:#2a4a22;border-color:#8aaa6a;font-weight:600;">1</div>
+    </div>
+  </div>
+  <div class="footer">
+    <div class="legend">
+      <div class="legend-item"><div class="legend-dot" style="background:#ecd5cc;border-color:#d4a898"></div>far away</div>
+      <div class="legend-item"><div class="legend-dot" style="background:#f0e8c8;border-color:#d8c888"></div>getting closer</div>
+      <div class="legend-item"><div class="legend-dot" style="background:#d4e4f0;border-color:#a4c4e0"></div>nearly there</div>
+      <div class="legend-item"><div class="legend-dot" style="background:#d4e8d0;border-color:#a0c89c"></div>so close!</div>
+    </div>
+    <div class="instructions">draw an X on each day as you go ✦</div>
+  </div>
+</div>
+</body>
+</html>
